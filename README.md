@@ -1,5 +1,9 @@
 # Run the project
 
+## Install local LLM
+
+Install Ollama from the official website: https://ollama.com/
+
 ## Create a virtual environment
 ```
 </path/to/pthon/bin> -m venv ./.venv

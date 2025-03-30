@@ -1,2 +1,10 @@
-pip~=25.0
-
+pip~=25.0.1
+llama-index
+llama-index-readers-file
+llama-index-llms-ollama
+llama-index-embeddings-huggingface
+llama-index-vector-stores-chroma
+chromadb
+#langchain-community~=0.3.20
+#langchain-core~=0.3.49
+#llama-index-embeddings-ollama~=0.6.0
