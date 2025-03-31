@@ -7,12 +7,14 @@ from llama_index.vector_stores.chroma import ChromaVectorStore
 import asyncio
 import chromadb
 
-PROMPT = "TBD"
+PROMPT = "What are the core concepts of the REACH regulation from the EU?"
 
 # Settings control global defaults
 Settings.embed_model = HuggingFaceEmbedding(model_name="BAAI/bge-base-en-v1.5")
 Settings.llm = Ollama(model="llama3.2", request_timeout=360.0)
+
 # Load documents and create an index
+print("Loading documents...")
 documents = SimpleDirectoryReader("./data").load_data()
 node_parser = SimpleNodeParser.from_defaults(chunk_size=512)  # bei großen Dokumenten 1024
 nodes = node_parser.get_nodes_from_documents(documents)
@@ -49,8 +51,8 @@ embeddings = Settings.embed_model.get_text_embedding(PROMPT)
 result = chroma_collection.query(embeddings,n_results=5)
 query_engine = index.as_query_engine()
 response = query_engine.query(PROMPT)
+print("Response with context")
 print(response)
-
 
 # Option 1
 #if __name__ == "__main__":
